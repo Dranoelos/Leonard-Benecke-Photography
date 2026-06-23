@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Léonard Benecke Photography. Events, portraits and automotive work."
+    />
+    <title>Léonard Benecke Photography</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311110f'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='24' fill='%23f4f1ea'%3ELB%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Léonard Benecke Photography home">
+        <span>Léonard Benecke</span>
+        <small>Photography</small>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="#events">Events</a>
+        <a href="#portraits">Portraits</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Featured photograph">
+        <img src="images/portfolio/hero.jpg" alt="Blue-lit club crowd behind the DJ" />
+        <div class="hero-meta">
+          <p>Photo / Video</p>
+          <p>München</p>
+        </div>
+      </section>
+
+      <nav class="category-nav" aria-label="Page sections">
+        <a href="#events">Events</a>
+        <a href="#portraits">Portraits</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <section id="events" class="gallery-section" aria-labelledby="events-title">
+        <div class="section-heading">
+          <p>01</p>
+          <h1 id="events-title">Events</h1>
+        </div>
+
+        <div class="photo-grid photo-grid-events">
+          <figure>
+            <img src="images/portfolio/events-night.jpg" alt="Crowd at a nighttime event" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/events-red.jpg" alt="DJ and crowd at a daytime event" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/events-crowd-bw.jpg" alt="Black and white party crowd" />
+          </figure>
+          <figure class="photo-wide">
+            <img src="images/portfolio/events-blue.jpg" alt="Night event with blue and red light" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/events-blue-stage.jpg" alt="Blue and red lit stage at a nighttime event" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/events-stage.jpg" alt="Guests celebrating by the lake" />
+          </figure>
+          <figure class="photo-panorama">
+            <img src="images/portfolio/events-red-stage.jpg" alt="Crowd gathered around a red-lit stage" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/events-lake.jpg" alt="Guests at an outdoor event near the water" />
+          </figure>
+          <figure class="photo-wide">
+            <img src="images/portfolio/events-crowd-green.jpg" alt="Crowd around the DJ booth at night" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/events-dj.jpg" alt="DJ in front of a crowd" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="portraits" class="gallery-section" aria-labelledby="portraits-title">
+        <div class="section-heading">
+          <p>02</p>
+          <h1 id="portraits-title">Portraits</h1>
+        </div>
+
+        <div class="photo-grid photo-grid-portrait">
+          <figure>
+            <img src="images/portfolio/automotive-red.jpg" alt="Portrait leaning against a car" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/portrait-headphones.jpg" alt="Portrait with headphones by the water" />
+          </figure>
+          <figure class="photo-wide">
+            <img src="images/portfolio/selected-place.jpg" alt="House exterior with flowers" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/portrait-water.jpg" alt="Portrait in a white dress by the water" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/automotive-helmet.jpg" alt="Portrait through a car window with helmet" />
+          </figure>
+          <figure class="photo-wide">
+            <img src="images/portfolio/portrait-night.jpg" alt="Night portrait in the snow" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/selected-lake.jpg" alt="Evening detail by a lake" />
+          </figure>
+          <figure class="photo-panorama">
+            <img src="images/portfolio/portrait-lake-wide.jpg" alt="Portrait by the water in sunlight" />
+          </figure>
+          <figure>
+            <img src="images/portfolio/portrait-sunglasses.jpg" alt="Black and white portrait with sunglasses" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-label="Contact">
+        <a href="mailto:benecke.leonard@gmail.com">benecke.leonard@gmail.com</a>
+        <a href="https://www.instagram.com/leonardbenecke/">@leonardbenecke</a>
+        <p>© <span id="year"></span> Léonard Benecke</p>
+      </section>
+    </main>
+  </body>
+</html>
