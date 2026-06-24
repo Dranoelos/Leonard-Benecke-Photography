@@ -75,7 +75,7 @@ button {
 .category-nav {
   display: flex;
   gap: clamp(18px, 2.6vw, 36px);
-  font-size: 0.78rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.35rem);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -102,8 +102,12 @@ button {
   min-height: 100svh;
   overflow: hidden;
   background: #080806;
+  background-image: url("images/COVER/001.jpg");
+  background-position: center 55%;
+  background-size: cover;
 }
 
+.hero video,
 .hero img {
   width: 100%;
   height: 100svh;
@@ -130,7 +134,7 @@ button {
   display: flex;
   justify-content: space-between;
   color: #fff;
-  font-size: 0.76rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.35rem);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -191,11 +195,27 @@ h1 {
 }
 
 .photo-grid figure {
+  position: relative;
   display: inline-block;
   width: 100%;
   margin-bottom: var(--photo-gap);
   background: #d8d2c6;
   break-inside: avoid;
+}
+
+.photo-grid-events figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .photo-grid img {
@@ -271,6 +291,7 @@ h1 {
     overflow-x: auto;
   }
 
+  .hero video,
   .hero img {
     object-position: center center;
   }
