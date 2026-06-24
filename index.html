@@ -1,16 +1,72 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Léonard Benecke Photography. Events, portraits and automotive work."
+      content="Léonard Benecke Photography in München für Eventfotografie, Club-Events, Portraits, Automotive, Immobilien, Foto und Video."
     />
-    <title>Léonard Benecke Photography</title>
+    <meta name="author" content="Léonard Benecke" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="Fotograf München, Eventfotografie München, Clubfotografie, Portraitfotografie, Automotive Fotografie, Immobilienfotografie, Videografie München"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Léonard Benecke Photography" />
+    <meta property="og:title" content="Léonard Benecke Photography | Foto & Video in München" />
+    <meta
+      property="og:description"
+      content="Eventfotografie, Club-Events, Portraits, Automotive, Immobilien sowie Foto- und Videoproduktion in München."
+    />
+    <meta property="og:url" content="https://leonardbenecke.de/" />
+    <meta property="og:image" content="https://leonardbenecke.de/images/COVER/001.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Léonard Benecke Photography | Foto & Video in München" />
+    <meta
+      name="twitter:description"
+      content="Eventfotografie, Club-Events, Portraits, Automotive, Immobilien sowie Foto- und Videoproduktion in München."
+    />
+    <meta name="twitter:image" content="https://leonardbenecke.de/images/COVER/001.jpg" />
+    <title>Léonard Benecke Photography | Foto & Video in München</title>
+    <link rel="canonical" href="https://leonardbenecke.de/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311110f'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='24' fill='%23f4f1ea'%3ELB%3C/text%3E%3C/svg%3E" />
     <link rel="preload" as="image" href="images/COVER/001.jpg" fetchpriority="high" />
     <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Léonard Benecke Photography",
+        "url": "https://leonardbenecke.de/",
+        "image": "https://leonardbenecke.de/images/COVER/001.jpg",
+        "email": "benecke.leonard@gmail.com",
+        "sameAs": ["https://www.instagram.com/leonardbenecke/"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Planegger Straße 38",
+          "postalCode": "81241",
+          "addressLocality": "München",
+          "addressCountry": "DE"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "München"
+        },
+        "description": "Fotografie und Videografie in München mit Fokus auf Events, Club-Events, Portraits, Automotive, Immobilien und Musikvideos.",
+        "knowsAbout": [
+          "Eventfotografie",
+          "Clubfotografie",
+          "Portraitfotografie",
+          "Automotive Fotografie",
+          "Immobilienfotografie",
+          "Videografie",
+          "Videoschnitt"
+        ]
+      }
+    </script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -34,8 +90,8 @@
     <main id="top">
       <section class="hero" aria-label="Featured video">
         <video autoplay muted loop playsinline preload="auto" poster="images/COVER/001.jpg">
-          <source src="images/CoverVideoHDR.mp4" type="video/mp4" media="(dynamic-range: high)" />
-          <source src="images/CoverVideoSDR.mp4" type="video/mp4" />
+          <source src="images/CoverVideoHDR-compressed.mp4" type="video/mp4" media="(dynamic-range: high)" />
+          <source src="images/CoverVideoSDR-compressed.mp4" type="video/mp4" />
           <img src="images/COVER/001.jpg" alt="Blue-lit crowd behind the DJ" />
         </video>
         <div class="hero-meta">
@@ -151,6 +207,7 @@
       <section id="contact" class="contact" aria-label="Contact">
         <a href="mailto:benecke.leonard@gmail.com">benecke.leonard@gmail.com</a>
         <a href="https://www.instagram.com/leonardbenecke/">@leonardbenecke</a>
+        <a href="impressum.html">Impressum</a>
         <p>© <span id="year"></span> Léonard Benecke</p>
       </section>
     </main>

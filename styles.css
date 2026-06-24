@@ -296,6 +296,42 @@ h1 {
   text-transform: none;
 }
 
+.legal-page {
+  min-height: 100svh;
+  padding: clamp(24px, 4vw, 56px);
+}
+
+.legal-back {
+  display: inline-block;
+  margin-bottom: clamp(64px, 14vw, 180px);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.legal-content {
+  max-width: 720px;
+}
+
+.legal-content h1 {
+  margin-bottom: clamp(42px, 8vw, 92px);
+}
+
+.legal-content h2 {
+  margin: 0 0 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.legal-content p {
+  margin: 0 0 34px;
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  line-height: 1.5;
+}
+
 @media (max-width: 780px) {
   .site-header {
     padding: 18px;
