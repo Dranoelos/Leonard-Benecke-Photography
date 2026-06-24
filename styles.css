@@ -215,14 +215,13 @@ h1 {
   bottom: 10px;
   left: 10px;
   padding: 5px 8px;
-  background: rgba(0, 0, 0, 0.48);
+  background: rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(10px);
   color: #fff;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1;
-  text-transform: uppercase;
 }
 
 .photo-grid img {
