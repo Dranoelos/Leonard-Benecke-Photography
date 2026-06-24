@@ -101,25 +101,25 @@ button {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  background: #080806;
-  background-image: url("images/COVER/001.jpg");
-  background-position: center 55%;
-  background-size: cover;
+  background: #151515;
 }
 
 .hero video,
 .hero img {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
   height: 100svh;
+  max-width: calc(100svh * 21 / 9);
+  max-height: calc(100vw * 16 / 9);
   object-fit: cover;
   object-position: center 55%;
+  transform: translate(-50%, -50%);
 }
 
 .hero video {
   display: block;
-  transform: scale(1.025);
 }
 
 .hero::after {
