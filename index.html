@@ -89,9 +89,16 @@
 
     <main id="top">
       <section class="hero" aria-label="Featured video">
-        <video autoplay muted loop playsinline preload="auto" poster="images/COVER/001.jpg">
-          <source src="images/CoverVideoHDR-compressed.mp4" type="video/mp4" media="(dynamic-range: high)" />
-          <source src="images/CoverVideoSDR-compressed.mp4" type="video/mp4" />
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="images/COVER/001.jpg"
+          data-hdr-src="images/CoverVideoHDR-compressed.mp4"
+          data-sdr-src="images/CoverVideoSDR-compressed.mp4"
+        >
           <img src="images/COVER/001.jpg" alt="Blue-lit crowd behind the DJ" />
         </video>
         <div class="hero-meta">

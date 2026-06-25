@@ -2,6 +2,7 @@ const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
 const year = document.querySelector("#year");
 const galleryImages = document.querySelectorAll(".photo-grid img");
+const heroVideo = document.querySelector(".hero video");
 const eventCaptions = [
   ["lucky", "Lucky Who Bar"],
   ["goru", "Goru Seven"],
@@ -31,6 +32,19 @@ if (menuButton && navigation) {
 
 if (year) {
   year.textContent = new Date().getFullYear();
+}
+
+if (heroVideo) {
+  const hdrSource = heroVideo.dataset.hdrSrc;
+  const sdrSource = heroVideo.dataset.sdrSrc;
+  const prefersHdr = window.matchMedia?.("(dynamic-range: high)").matches;
+  const selectedSource = prefersHdr && hdrSource ? hdrSource : sdrSource;
+
+  if (selectedSource) {
+    heroVideo.src = selectedSource;
+    heroVideo.load();
+    heroVideo.play().catch(() => {});
+  }
 }
 
 document.querySelectorAll(".photo-grid-events figure").forEach((figure) => {
