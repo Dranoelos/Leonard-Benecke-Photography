@@ -2,7 +2,6 @@ const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
 const year = document.querySelector("#year");
 const galleryImages = document.querySelectorAll(".photo-grid img");
-const heroVideo = document.querySelector(".hero video");
 const galleryGrids = document.querySelectorAll(".photo-grid");
 const desktopGalleryQuery = window.matchMedia("(min-width: 561px)");
 const eventCaptions = [
@@ -35,32 +34,6 @@ if (menuButton && navigation) {
 
 if (year) {
   year.textContent = new Date().getFullYear();
-}
-
-if (heroVideo) {
-  const hdrSource = heroVideo.dataset.hdrSrc;
-  const sdrSource = heroVideo.dataset.sdrSrc;
-  const lowHdrSource = heroVideo.dataset.lowHdrSrc;
-  const lowSdrSource = heroVideo.dataset.lowSdrSrc;
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  const prefersHdr = window.matchMedia?.("(dynamic-range: high)").matches;
-  const isSlowConnection =
-    connection?.saveData ||
-    ["slow-2g", "2g", "3g"].includes(connection?.effectiveType) ||
-    (typeof connection?.downlink === "number" && connection.downlink > 0 && connection.downlink < 1.5);
-  const selectedSource = isSlowConnection
-    ? prefersHdr && lowHdrSource
-      ? lowHdrSource
-      : lowSdrSource || sdrSource
-    : prefersHdr && hdrSource
-      ? hdrSource
-      : sdrSource;
-
-  if (selectedSource) {
-    heroVideo.src = selectedSource;
-    heroVideo.load();
-    heroVideo.play().catch(() => {});
-  }
 }
 
 document.querySelectorAll(".photo-grid-events figure").forEach((figure) => {

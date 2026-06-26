@@ -102,6 +102,39 @@
         >
           <img src="images/COVER/0010.jpg" alt="Blue-lit crowd behind the DJ" fetchpriority="low" />
         </video>
+        <script>
+          (() => {
+            const video = document.currentScript.previousElementSibling;
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            const prefersHdr = window.matchMedia?.("(dynamic-range: high)").matches;
+            const isSlowConnection =
+              connection?.saveData ||
+              ["slow-2g", "2g", "3g"].includes(connection?.effectiveType) ||
+              (typeof connection?.downlink === "number" && connection.downlink > 0 && connection.downlink < 1.5);
+            const selectedSource = isSlowConnection
+              ? prefersHdr && video.dataset.lowHdrSrc
+                ? video.dataset.lowHdrSrc
+                : video.dataset.lowSdrSrc || video.dataset.sdrSrc
+              : prefersHdr && video.dataset.hdrSrc
+                ? video.dataset.hdrSrc
+                : video.dataset.sdrSrc;
+
+            if (!selectedSource) {
+              return;
+            }
+
+            const preload = document.createElement("link");
+            preload.rel = "preload";
+            preload.as = "video";
+            preload.href = selectedSource;
+            preload.fetchPriority = "high";
+            document.head.append(preload);
+
+            video.src = selectedSource;
+            video.load();
+            video.play().catch(() => {});
+          })();
+        </script>
         <div class="hero-meta">
           <p>Photo / Video</p>
           <p>München</p>
