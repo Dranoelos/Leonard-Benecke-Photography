@@ -40,8 +40,21 @@ if (year) {
 if (heroVideo) {
   const hdrSource = heroVideo.dataset.hdrSrc;
   const sdrSource = heroVideo.dataset.sdrSrc;
+  const lowHdrSource = heroVideo.dataset.lowHdrSrc;
+  const lowSdrSource = heroVideo.dataset.lowSdrSrc;
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   const prefersHdr = window.matchMedia?.("(dynamic-range: high)").matches;
-  const selectedSource = prefersHdr && hdrSource ? hdrSource : sdrSource;
+  const isSlowConnection =
+    connection?.saveData ||
+    ["slow-2g", "2g", "3g"].includes(connection?.effectiveType) ||
+    (typeof connection?.downlink === "number" && connection.downlink > 0 && connection.downlink < 1.5);
+  const selectedSource = isSlowConnection
+    ? prefersHdr && lowHdrSource
+      ? lowHdrSource
+      : lowSdrSource || sdrSource
+    : prefersHdr && hdrSource
+      ? hdrSource
+      : sdrSource;
 
   if (selectedSource) {
     heroVideo.src = selectedSource;
