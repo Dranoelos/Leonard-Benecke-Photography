@@ -3,11 +3,14 @@ const navigation = document.querySelector(".site-nav");
 const year = document.querySelector("#year");
 const galleryImages = document.querySelectorAll(".photo-grid img");
 const heroVideo = document.querySelector(".hero video");
+const galleryGrids = document.querySelectorAll(".photo-grid");
+const desktopGalleryQuery = window.matchMedia("(min-width: 561px)");
 const eventCaptions = [
   ["lucky", "Lucky Who Bar"],
   ["goru", "Goru Seven"],
   ["hiphopisland", "HipHopIsland"],
 ];
+const galleryStates = new Map();
 let lightbox;
 let lightboxImage;
 
@@ -60,6 +63,61 @@ document.querySelectorAll(".photo-grid-events figure").forEach((figure) => {
   caption.textContent = captionText;
   figure.append(caption);
 });
+
+function restoreGalleryOrder(grid, state) {
+  state.figures.forEach((figure) => grid.append(figure));
+  state.columns?.forEach((column) => column.remove());
+  state.columns = null;
+  grid.classList.remove("is-columnized");
+}
+
+function columnizeGallery(grid, state) {
+  if (state.columns) {
+    return;
+  }
+
+  const columns = [document.createElement("div"), document.createElement("div")];
+  columns.forEach((column) => {
+    column.className = "photo-grid-column";
+    grid.append(column);
+  });
+
+  state.figures.forEach((figure, index) => {
+    columns[index % columns.length].append(figure);
+  });
+
+  state.columns = columns;
+  grid.classList.add("is-columnized");
+}
+
+function updateGalleryLayouts() {
+  galleryGrids.forEach((grid) => {
+    const state =
+      galleryStates.get(grid) ??
+      {
+        figures: Array.from(grid.children).filter((child) => child.matches("figure")),
+        columns: null,
+      };
+
+    galleryStates.set(grid, state);
+
+    if (desktopGalleryQuery.matches) {
+      columnizeGallery(grid, state);
+    } else {
+      restoreGalleryOrder(grid, state);
+    }
+  });
+}
+
+if (galleryGrids.length) {
+  updateGalleryLayouts();
+
+  if (desktopGalleryQuery.addEventListener) {
+    desktopGalleryQuery.addEventListener("change", updateGalleryLayouts);
+  } else {
+    desktopGalleryQuery.addListener(updateGalleryLayouts);
+  }
+}
 
 function closeLightbox() {
   lightbox?.classList.remove("is-open");

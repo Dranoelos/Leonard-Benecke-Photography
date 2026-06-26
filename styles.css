@@ -201,17 +201,23 @@ h1 {
 
 .photo-grid {
   --photo-gap: clamp(12px, 1.4vw, 22px);
-  column-count: 2;
-  column-gap: var(--photo-gap);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--photo-gap);
+  align-items: start;
+}
+
+.photo-grid-column {
+  display: grid;
+  gap: var(--photo-gap);
+  align-content: start;
 }
 
 .photo-grid figure {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 100%;
-  margin-bottom: var(--photo-gap);
   background: #d8d2c6;
-  break-inside: avoid;
 }
 
 .photo-grid-events figcaption {
@@ -385,7 +391,7 @@ h1 {
   }
 
   .photo-grid {
-    column-count: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contact {
@@ -396,7 +402,7 @@ h1 {
 
 @media (max-width: 560px) {
   .photo-grid {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 }
 
