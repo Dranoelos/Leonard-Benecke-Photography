@@ -240,6 +240,12 @@ h1 {
   cursor: zoom-in;
 }
 
+.photo-grid img:not([src]):not([width]) {
+  display: block;
+  aspect-ratio: 3 / 2;
+  min-height: 180px;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
