@@ -87,6 +87,8 @@
     </header>
 
     <main id="top">
+      <h1 class="sr-only">Léonard Benecke Photography in München</h1>
+
       <section class="hero" aria-label="Featured video">
         <video
           autoplay
@@ -102,39 +104,6 @@
         >
           <img src="images/COVER/0010.jpg" alt="Blue-lit crowd behind the DJ" fetchpriority="low" />
         </video>
-        <script>
-          (() => {
-            const video = document.currentScript.previousElementSibling;
-            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-            const prefersHdr = window.matchMedia?.("(dynamic-range: high)").matches;
-            const isSlowConnection =
-              connection?.saveData ||
-              ["slow-2g", "2g", "3g"].includes(connection?.effectiveType) ||
-              (typeof connection?.downlink === "number" && connection.downlink > 0 && connection.downlink < 1.5);
-            const selectedSource = isSlowConnection
-              ? prefersHdr && video.dataset.lowHdrSrc
-                ? video.dataset.lowHdrSrc
-                : video.dataset.lowSdrSrc || video.dataset.sdrSrc
-              : prefersHdr && video.dataset.hdrSrc
-                ? video.dataset.hdrSrc
-                : video.dataset.sdrSrc;
-
-            if (!selectedSource) {
-              return;
-            }
-
-            const preload = document.createElement("link");
-            preload.rel = "preload";
-            preload.as = "video";
-            preload.href = selectedSource;
-            preload.fetchPriority = "high";
-            document.head.append(preload);
-
-            video.src = selectedSource;
-            video.load();
-            video.play().catch(() => {});
-          })();
-        </script>
         <div class="hero-meta">
           <p>Photo / Video</p>
           <p>München</p>
@@ -150,57 +119,57 @@
       <section id="events" class="gallery-section" aria-labelledby="events-title">
         <div class="section-heading">
           <p>01</p>
-          <h1 id="events-title">Events</h1>
+          <h2 id="events-title">Events</h2>
         </div>
 
         <div class="photo-grid photo-grid-events">
           <figure>
-            <img data-src="images/events/0010-hiphopisland.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0010-hiphopisland.jpg" width="1800" height="1200" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0020-hiphopisland.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0020-hiphopisland.jpg" width="1800" height="1200" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0025-lucky.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0025-lucky.jpg" width="3530" height="5295" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0030-lucky.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0030-lucky.jpg" width="1800" height="1200" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure class="photo-wide">
-            <img data-src="images/events/0040-goru.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0040-goru.jpg" width="1200" height="1800" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0045-goru.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0045-goru.jpg" width="4000" height="6000" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0050-lucky.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0050-lucky.jpg" width="1800" height="1200" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0060-goru.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0060-goru.jpg" width="1200" height="1800" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure class="photo-panorama">
-            <img data-src="images/events/0070-goru.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0070-goru.jpg" width="1200" height="1800" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0075-goru.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0075-goru.jpg" width="6000" height="4000" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0080-hiphopisland.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0080-hiphopisland.jpg" width="1800" height="1200" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0085-lucky.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0085-lucky.jpg" width="1600" height="2400" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure class="photo-wide">
-            <img data-src="images/events/0090-lucky.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0090-lucky.jpg" width="1200" height="1800" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0110-hiphopisland.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0110-hiphopisland.jpg" width="1200" height="1800" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0120-hiphopisland.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0120-hiphopisland.jpg" width="1500" height="2250" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
           <figure>
-            <img data-src="images/events/0140-lucky.jpg" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
+            <img data-src="images/events/0140-lucky.jpg" width="2400" height="1600" alt="Event photograph" loading="lazy" decoding="async" fetchpriority="low" />
           </figure>
         </div>
       </section>
@@ -208,7 +177,7 @@
       <section id="portraits" class="gallery-section" aria-labelledby="portraits-title">
         <div class="section-heading">
           <p>02</p>
-          <h1 id="portraits-title">Portraits</h1>
+          <h2 id="portraits-title">Portraits</h2>
         </div>
 
         <div class="photo-grid photo-grid-portrait">
@@ -257,8 +226,9 @@
       <section id="contact" class="contact" aria-label="Contact">
         <p class="contact-note">Open to bookings</p>
         <a href="mailto:benecke.leonard@gmail.com">benecke.leonard@gmail.com</a>
-        <a href="https://www.instagram.com/leonardbenecke/">@leonardbenecke</a>
+        <a href="https://www.instagram.com/leonardbenecke/" rel="noopener noreferrer">@leonardbenecke</a>
         <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Privacy</a>
         <p>© <span id="year"></span> Léonard Benecke - München</p>
       </section>
     </main>

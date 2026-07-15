@@ -44,6 +44,18 @@ button {
   font: inherit;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .site-header {
   position: absolute;
   z-index: 10;
@@ -191,7 +203,8 @@ figure {
   letter-spacing: 0.16em;
 }
 
-h1 {
+h1,
+.section-heading h2 {
   margin: 0;
   font-size: clamp(3.4rem, 9vw, 9.5rem);
   font-weight: 500;
@@ -287,7 +300,7 @@ h1 {
 
 .contact {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr repeat(5, auto);
   gap: 22px;
   align-items: end;
   margin-top: clamp(86px, 12vw, 160px);

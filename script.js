@@ -1,6 +1,7 @@
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
 const year = document.querySelector("#year");
+const heroVideo = document.querySelector(".hero video");
 const galleryImages = document.querySelectorAll(".photo-grid img");
 const galleryGrids = document.querySelectorAll(".photo-grid");
 const desktopGalleryQuery = window.matchMedia("(min-width: 561px)");
@@ -35,6 +36,43 @@ if (menuButton && navigation) {
 if (year) {
   year.textContent = new Date().getFullYear();
 }
+
+function loadHeroVideo() {
+  if (!heroVideo) {
+    return;
+  }
+
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const prefersHdr = window.matchMedia?.("(dynamic-range: high)").matches;
+  const isSlowConnection =
+    connection?.saveData ||
+    ["slow-2g", "2g", "3g"].includes(connection?.effectiveType) ||
+    (typeof connection?.downlink === "number" && connection.downlink > 0 && connection.downlink < 1.5);
+  const selectedSource = isSlowConnection
+    ? prefersHdr && heroVideo.dataset.lowHdrSrc
+      ? heroVideo.dataset.lowHdrSrc
+      : heroVideo.dataset.lowSdrSrc || heroVideo.dataset.sdrSrc
+    : prefersHdr && heroVideo.dataset.hdrSrc
+      ? heroVideo.dataset.hdrSrc
+      : heroVideo.dataset.sdrSrc;
+
+  if (!selectedSource) {
+    return;
+  }
+
+  const preload = document.createElement("link");
+  preload.rel = "preload";
+  preload.as = "video";
+  preload.href = selectedSource;
+  preload.fetchPriority = "high";
+  document.head.append(preload);
+
+  heroVideo.src = selectedSource;
+  heroVideo.load();
+  heroVideo.play().catch(() => {});
+}
+
+loadHeroVideo();
 
 galleryImages.forEach((image) => {
   const imageWidth = Number(image.getAttribute("width"));
@@ -212,8 +250,6 @@ function beginGalleryImageLoading() {
 }
 
 function waitForHeroVideoBeforeGalleryImages() {
-  const heroVideo = document.querySelector(".hero video");
-
   if (!heroVideo) {
     beginGalleryImageLoading();
     return;
