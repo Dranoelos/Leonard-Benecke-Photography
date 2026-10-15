@@ -43,7 +43,9 @@ function loadHeroVideo() {
   }
 
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  const prefersHdr = window.matchMedia?.("(dynamic-range: high)").matches;
+  const prefersHdr =
+    window.matchMedia?.("(dynamic-range: high)").matches &&
+    heroVideo.canPlayType('video/mp4; codecs="hvc1.2.4.L150.B0"') !== "";
   const isSlowConnection =
     connection?.saveData ||
     ["slow-2g", "2g", "3g"].includes(connection?.effectiveType) ||
@@ -66,6 +68,19 @@ function loadHeroVideo() {
   preload.href = selectedSource;
   preload.fetchPriority = "high";
   document.head.append(preload);
+
+  const sdrFallback = isSlowConnection
+    ? heroVideo.dataset.lowSdrSrc || heroVideo.dataset.sdrSrc
+    : heroVideo.dataset.sdrSrc;
+
+  if (prefersHdr && sdrFallback && selectedSource !== sdrFallback) {
+    heroVideo.addEventListener("error", () => {
+      preload.href = sdrFallback;
+      heroVideo.src = sdrFallback;
+      heroVideo.load();
+      heroVideo.play().catch(() => {});
+    }, { once: true });
+  }
 
   heroVideo.src = selectedSource;
   heroVideo.load();
