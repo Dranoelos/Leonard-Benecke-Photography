@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="de">
+<html lang="de" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="theme.js?v=a071489ff0a8"></script>
     <meta
       name="description"
       content="Léonard Benecke Photography in München für Eventfotografie, Club-Events, Portraits, Automotive, Immobilien, Foto und Video."
@@ -33,7 +34,7 @@
     <title>Léonard Benecke Photography | Foto &amp; Video in München</title>
     <link rel="canonical" href="https://leonardbenecke.de/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311110f'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='24' fill='%23f4f1ea'%3ELB%3C/text%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="styles.css?v=f00c2fd76803" />
+    <link rel="stylesheet" href="styles.css?v=9e57c28a5584" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -107,11 +108,17 @@
       </section>
 
       <section id="photography" class="gallery-section gallery-feed" aria-label="Photography">
+        <div class="gallery-toolbar">
         <nav class="photo-filters" aria-label="Fotos filtern">
           <button type="button" data-photo-filter="all" aria-pressed="true" aria-controls="photography-grid">All</button>
           <button type="button" data-photo-filter="events" aria-pressed="false" aria-controls="photography-grid">Events</button>
           <button type="button" data-photo-filter="portraits" aria-pressed="false" aria-controls="photography-grid">Portraits</button>
         </nav>
+        <button class="theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Dunkler Modus" data-theme-toggle>
+          <span data-theme-label>Dark</span>
+          <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
+        </button>
+        </div>
         <p class="sr-only" data-gallery-status role="status" aria-live="polite"></p>
         <div id="photography-grid" class="photo-grid" data-gallery-feed></div>
       </section>

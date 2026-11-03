@@ -3,7 +3,18 @@
   --ink: #11110f;
   --muted: #747168;
   --line: rgba(17, 17, 15, 0.16);
+  --image-placeholder: #d8d2c6;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #121312;
+  --ink: #e6e4de;
+  --muted: #a4a49b;
+  --line: rgba(230, 228, 222, 0.18);
+  --image-placeholder: #212320;
+  color-scheme: dark;
 }
 
 * {
@@ -189,11 +200,19 @@ figure {
   padding-top: clamp(12px, 1.4vw, 22px);
 }
 
+.gallery-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
 .photo-filters {
   display: inline-flex;
   gap: 2px;
   padding: 3px;
-  margin: 0 0 18px;
+  margin: 0;
   border: 1px solid var(--line);
   border-radius: 999px;
 }
@@ -218,6 +237,48 @@ figure {
 .photo-filters button:focus-visible {
   outline: 1px solid var(--ink);
   outline-offset: 3px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 0 8px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.theme-toggle-track {
+  display: block;
+  width: 30px;
+  height: 18px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.theme-toggle-thumb {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition: transform 180ms ease;
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle-thumb {
+  transform: translateX(12px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 3px;
 }
 
 .section-heading {
@@ -296,7 +357,7 @@ h1,
   display: block;
   width: 100%;
   margin: 0;
-  background: #d8d2c6;
+  background: var(--image-placeholder);
 }
 
 .photo-grid-events figcaption {
