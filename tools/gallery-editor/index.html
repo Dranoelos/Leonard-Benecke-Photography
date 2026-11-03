@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="gallery-token" content="__SAVE_TOKEN__" />
+  <title>Galerie verwalten — Léonard Benecke</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/tools/gallery-editor/editor.css" />
+  <script src="/gallery-data.js" defer></script>
+  <script src="/script.js" defer></script>
+  <script src="/tools/gallery-editor/editor.js" defer></script>
+</head>
+<body>
+  <header class="editor-header">
+    <div><p class="eyebrow">Léonard Benecke · Lokale Vorschau</p><h1>Deine Bilder. Deine Reihenfolge.</h1>
+      <p>Bilder ziehen oder mit den Pfeilen verschieben. Neue Bilddateien kannst du aus dem Finder direkt hier hineinziehen.</p></div>
+    <div class="editor-actions"><button id="undo" disabled>Rückgängig</button><button id="save" disabled>Änderungen speichern</button></div>
+  </header>
+  <nav class="editor-toolbar" aria-label="Galerie und Vorschau">
+    <div class="gallery-tabs"><button data-tab="events" aria-pressed="true">Events</button><button data-tab="portraits" aria-pressed="false">Portraits</button></div>
+    <button id="new-tab" disabled>+ Neuer Tab</button>
+    <button id="upload" disabled>Bilder hinzufügen</button>
+    <input id="upload-files" class="sr-only" type="file" accept=".jpg,.jpeg,.png,.webp,.avif,.heic,.heif,.jxl" multiple tabindex="-1" aria-label="Bilder zum Hochladen auswählen" />
+    <input id="sdr-files" class="sr-only" type="file" accept=".jpg,.jpeg,.png,.webp,.avif,.heic,.heif,.jxl" tabindex="-1" aria-label="Eigene SDR-Version auswählen" />
+    <label>Vorschau <select id="viewport"><option value="auto">Aktuelle Breite</option><option value="1440">Desktop · 1440 px</option><option value="1024">Laptop · 1024 px</option><option value="390">Handy · 390 px</option></select></label>
+    <label><input id="clean" type="checkbox" /> Nur Bilder</label>
+    <label>Bilddarstellung <select id="dynamic-range"><option value="auto">Automatisch · HDR wenn möglich</option><option value="sdr">SDR-Vorschau</option></select></label>
+  </nav>
+  <dialog id="gallery-dialog">
+    <form id="gallery-form">
+      <h2>Neuer Tab</h2>
+      <label for="gallery-name">Name</label>
+      <input id="gallery-name" type="text" required maxlength="60" placeholder="z. B. Hochzeiten" autocomplete="off" autofocus />
+      <p id="gallery-error" role="alert"></p>
+      <div class="editor-actions"><button id="gallery-cancel" type="button">Abbrechen</button><button type="submit">Tab hinzufügen</button></div>
+    </form>
+  </dialog>
+  <p id="status" role="status" aria-live="polite">Bilderliste wird geprüft …</p>
+  <div id="file-drop-overlay" hidden aria-hidden="true"><div><strong>Bilder hier loslassen</strong><span></span></div></div>
+  <main class="preview-scroll"><div id="preview"><div class="preview-content">
+    <section data-panel="events"><h2 class="sr-only">Events</h2><div class="photo-grid photo-grid-events" data-gallery="events" data-show-hidden></div></section>
+    <section data-panel="portraits" hidden><h2 class="sr-only">Portraits</h2><div class="photo-grid" data-gallery="portraits" data-show-hidden></div></section>
+  </div></div></main>
+  <footer class="editor-footer">HDR-Fotos erhalten eine HDR- und eine farbverwaltete SDR-Version. Unter „SDR-Vorschau“ kannst du die Darstellung prüfen und bei Bedarf eine eigene SDR-Version hinterlegen. Uploads werden auf maximal 2400 px vorbereitet. Entfernen verschiebt die Bilddateien erst beim Speichern in den Papierkorb. Deine Originale bleiben unverändert. Es wird nichts veröffentlicht.</footer>
+</body>
+</html>

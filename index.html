@@ -22,14 +22,14 @@
       content="Eventfotografie, Club-Events, Portraits, Automotive, Immobilien sowie Foto- und Videoproduktion in München."
     />
     <meta property="og:url" content="https://leonardbenecke.de/" />
-    <meta property="og:image" content="https://leonardbenecke.de/images/COVER/0010.jpg" />
+    <meta property="og:image" content="https://leonardbenecke.de/media/images/cover/cover-video-first-frame-20261026.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Léonard Benecke Photography | Foto &amp; Video in München" />
     <meta
       name="twitter:description"
       content="Eventfotografie, Club-Events, Portraits, Automotive, Immobilien sowie Foto- und Videoproduktion in München."
     />
-    <meta name="twitter:image" content="https://leonardbenecke.de/images/COVER/0010.jpg" />
+    <meta name="twitter:image" content="https://leonardbenecke.de/media/images/cover/cover-video-first-frame-20261026.jpg" />
     <title>Léonard Benecke Photography | Foto &amp; Video in München</title>
     <link rel="canonical" href="https://leonardbenecke.de/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311110f'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='24' fill='%23f4f1ea'%3ELB%3C/text%3E%3C/svg%3E" />
@@ -40,7 +40,7 @@
         "@type": "LocalBusiness",
         "name": "Léonard Benecke Photography",
         "url": "https://leonardbenecke.de/",
-        "image": "https://leonardbenecke.de/images/COVER/0010.jpg",
+        "image": "https://leonardbenecke.de/media/images/cover/cover-video-first-frame-20261026.jpg",
         "email": "benecke.leonard@gmail.com",
         "sameAs": ["https://www.instagram.com/leonardbenecke/"],
         "address": {
@@ -66,6 +66,7 @@
         ]
       }
     </script>
+    <script src="gallery-data.js" defer></script>
     <script src="script.js" defer fetchpriority="high"></script>
   </head>
   <body>
@@ -75,11 +76,7 @@
         <small>Photography</small>
       </a>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        Menu
-      </button>
-
-      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <nav id="site-nav" class="site-nav site-nav-direct" aria-label="Main navigation">
         <a href="#photography">Photography</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -95,13 +92,13 @@
           loop
           playsinline
           preload="auto"
-          poster="images/COVER/cover-video-first-frame-20261026.jpg"
-          data-hdr-src="images/CoverVideoHDR-compressed.mp4"
-          data-sdr-src="images/CoverVideoSDR-compressed.mp4"
-          data-low-hdr-src="images/CoverVideoHDR-low-compressed.mp4"
-          data-low-sdr-src="images/CoverVideoLOW-compressed.mp4"
+          poster="media/images/cover/cover-video-first-frame-20261026.jpg"
+          data-hdr-src="media/videos/cover/cover-hdr.mp4"
+          data-sdr-src="media/videos/cover/cover-sdr.mp4"
+          data-low-hdr-src="media/videos/cover/cover-hdr-low.mp4"
+          data-low-sdr-src="media/videos/cover/cover-sdr-low.mp4"
         >
-          <img src="images/COVER/cover-video-first-frame-20261026.jpg" alt="Open-air event with a guest wearing a white mask" fetchpriority="low" />
+          <img src="media/images/cover/cover-video-first-frame-20261026.jpg" alt="Open-air event with a guest wearing a white mask" fetchpriority="low" />
         </video>
         <div class="hero-meta">
           <p>Media Production</p>
@@ -109,30 +106,27 @@
         </div>
       </section>
 
-      <nav class="category-nav" aria-label="Page sections">
-        <a href="#photography">Photography</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <section id="photography" class="gallery-section" aria-labelledby="photography-title">
-        <div class="section-heading">
-          <p>01</p>
-          <h2 id="photography-title">Photography</h2>
-        </div>
-
-        <div class="gallery-maintenance">
-          <p class="maintenance-title">Better at taking photos than updating my website.</p>
-          <p class="maintenance-note">Working on it. New photos soon.</p>
-        </div>
+      <section id="photography" class="gallery-section gallery-feed" aria-label="Photography">
+        <nav class="photo-filters" aria-label="Fotos filtern">
+          <button type="button" data-photo-filter="all" aria-pressed="true" aria-controls="photography-grid">All</button>
+          <button type="button" data-photo-filter="events" aria-pressed="false" aria-controls="photography-grid">Events</button>
+          <button type="button" data-photo-filter="portraits" aria-pressed="false" aria-controls="photography-grid">Portraits</button>
+        </nav>
+        <p class="sr-only" data-gallery-status role="status" aria-live="polite"></p>
+        <div id="photography-grid" class="photo-grid" data-gallery-feed></div>
       </section>
 
       <section id="contact" class="contact" aria-label="Contact">
         <p class="contact-note">Open to bookings</p>
-        <a href="mailto:benecke.leonard@gmail.com">benecke.leonard@gmail.com</a>
-        <a href="https://www.instagram.com/leonardbenecke/" rel="noopener noreferrer">@leonardbenecke</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Privacy</a>
-        <p>© <span id="year"></span> Léonard Benecke - München</p>
+        <div class="contact-links">
+          <a id="contact-email" class="contact-link" href="mailto:benecke.leonard@gmail.com">benecke.leonard@gmail.com</a>
+          <a class="contact-link" href="https://www.instagram.com/leonardbenecke/" rel="noopener noreferrer">@leonardbenecke</a>
+        </div>
+        <div class="contact-meta">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Privacy</a>
+          <p>© <span id="year"></span> Léonard Benecke - München</p>
+        </div>
       </section>
     </main>
   </body>

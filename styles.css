@@ -185,6 +185,41 @@ figure {
   scroll-margin-top: 58px;
 }
 
+.gallery-feed {
+  padding-top: clamp(12px, 1.4vw, 22px);
+}
+
+.photo-filters {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  margin: 0 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.photo-filters button {
+  padding: 6px 13px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.photo-filters button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.photo-filters button:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
 .section-heading {
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -233,21 +268,34 @@ h1,
 .photo-grid {
   --photo-gap: clamp(12px, 1.4vw, 22px);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--photo-gap);
   align-items: start;
 }
 
-.photo-grid-column {
-  display: grid;
+.photo-grid[data-gallery-feed] {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-row {
+  display: flex;
+  width: 100%;
   gap: var(--photo-gap);
-  align-content: start;
+  align-items: flex-start;
+}
+
+.gallery-row > figure {
+  flex: var(--photo-ratio) 1 0%;
+  min-width: 0;
+  width: auto;
 }
 
 .photo-grid figure {
   position: relative;
   display: block;
   width: 100%;
+  margin: 0;
   background: #d8d2c6;
 }
 
@@ -269,6 +317,10 @@ h1,
   width: 100%;
   height: auto;
   cursor: zoom-in;
+}
+
+.photo-grid picture {
+  display: block;
 }
 
 .photo-grid img:not([src]):not([width]) {
@@ -300,6 +352,10 @@ h1,
   box-shadow: 0 20px 80px rgba(0, 0, 0, 0.32);
 }
 
+.lightbox picture {
+  display: contents;
+}
+
 .lightbox-close {
   position: fixed;
   top: 18px;
@@ -318,7 +374,7 @@ h1,
 
 .contact {
   display: grid;
-  grid-template-columns: 1fr repeat(5, auto);
+  grid-template-columns: 1fr;
   gap: 22px;
   align-items: end;
   margin-top: clamp(86px, 12vw, 160px);
@@ -329,6 +385,68 @@ h1,
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 36px;
+}
+
+.contact .contact-link {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  padding: 7px 0;
+  color: var(--ink);
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+
+.contact .contact-link:hover {
+  opacity: 1;
+  background: transparent;
+}
+
+.contact-link:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 5px;
+}
+
+.contact-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.contact-link:hover::after,
+.contact-link:focus-visible::after,
+.contact-links.is-highlighted .contact-link::after {
+  transform: scaleX(1);
+}
+
+.contact-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  align-items: center;
+  margin-top: 14px;
+  font-size: 0.7rem;
+}
+
+.contact-meta p {
+  margin-left: auto;
 }
 
 .legal-page {
@@ -365,6 +483,10 @@ h1,
   margin: 0 0 34px;
   font-size: clamp(1.05rem, 1.8vw, 1.45rem);
   line-height: 1.5;
+}
+
+@media (min-width: 781px) and (max-width: 1100px) {
+  .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 780px) {
@@ -406,6 +528,23 @@ h1,
     display: flex;
   }
 
+  .site-nav.site-nav-direct {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .site-nav-direct a[href="#photography"] {
+    display: none;
+  }
+
   .category-nav {
     justify-content: space-between;
     gap: 12px;
@@ -435,11 +574,15 @@ h1,
     grid-template-columns: 1fr;
     align-items: start;
   }
-}
 
-@media (max-width: 560px) {
-  .photo-grid {
-    grid-template-columns: 1fr;
+  .contact-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-meta p {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
