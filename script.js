@@ -37,6 +37,18 @@ document.querySelectorAll(".photo-grid[data-gallery]").forEach((grid) => {
   grid.replaceChildren(...figures);
 });
 
+function alternateMobileGalleryRow(previous, current) {
+  if (previous?.length !== 2 || current.length !== 2) return current;
+  const photos = [...previous, ...current];
+  if (!photos.every(figure => figure.dataset.category === current[0].dataset.category)) return current;
+  const orientations = photos.map(figure => {
+    const image = figure.querySelector("img");
+    return Math.sign(Number(image.getAttribute("width")) - Number(image.getAttribute("height")));
+  });
+  // Break repeated portrait/landscape rows without crossing category boundaries.
+  return orientations.join(",") === "-1,1,-1,1" ? [...current].reverse() : current;
+}
+
 document.querySelectorAll("[data-gallery-feed]").forEach((grid) => {
   const figures = Object.entries(window.GALLERY_DATA || {}).flatMap(([category, photos]) => photos.filter(photo => !photo.hidden).map(photo => {
     const figure = createGalleryFigure(photo);
@@ -52,18 +64,22 @@ document.querySelectorAll("[data-gallery-feed]").forEach((grid) => {
   const layoutRows = () => {
     const maximum = phone.matches ? 2 : tablet.matches ? 3 : 4;
     const selectedFigures = figures.filter(figure => selectedFilter === "all" || figure.dataset.category === selectedFilter);
-    // Equal-height rows preserve both image order and the full original crop.
+    // Equal-height rows preserve the full original crop.
     // Keep the current height while moving nodes to avoid collapsing the page.
     grid.style.minHeight = `${grid.getBoundingClientRect().height}px`;
     const rows = document.createDocumentFragment();
     let index = 0;
+    let previousRow = null;
     while (index < selectedFigures.length) {
       const remaining = selectedFigures.length - index;
       const count = maximum > 2 && remaining === maximum + 1 ? maximum - 1 : Math.min(maximum, remaining);
       const row = document.createElement("div");
       row.className = "gallery-row";
-      row.append(...selectedFigures.slice(index, index + count));
+      let rowFigures = selectedFigures.slice(index, index + count);
+      if (phone.matches) rowFigures = alternateMobileGalleryRow(previousRow, rowFigures);
+      row.append(...rowFigures);
       rows.append(row);
+      previousRow = rowFigures;
       index += count;
     }
     grid.replaceChildren(rows);

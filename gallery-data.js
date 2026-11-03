@@ -141,16 +141,19 @@ window.GALLERY_DATA = {
   ],
   "portraits": [
     {
-      "src": "media/images/portraits/0010.jpg",
-      "width": 1200,
-      "height": 1800,
-      "alt": "Portrait photograph"
-    },
-    {
       "src": "media/images/events/p1258559-76aa8621f656.jpg",
       "width": 1600,
       "height": 2400,
       "alt": "P1258559"
+    },
+    {
+      "src": "media/images/portraits/p1024344-2-65348010d207.jpg",
+      "width": 2400,
+      "height": 1600,
+      "alt": "P1024344 2",
+      "hdrSrc": "media/images/portraits/p1024344-2-65348010d207-hdr.jpg",
+      "hdrHeadroom": 3.645963191986084,
+      "sdrMethod": "embedded-sdr"
     },
     {
       "src": "media/images/events/p1258454-cec955843362.jpg",
@@ -171,7 +174,28 @@ window.GALLERY_DATA = {
       "alt": "Portrait photograph"
     },
     {
+      "src": "media/images/portraits/p1024257-c4e84d47d584.jpg",
+      "width": 2400,
+      "height": 1600,
+      "alt": "P1024257",
+      "hdrSrc": "media/images/portraits/p1024257-c4e84d47d584-hdr.jpg",
+      "hdrHeadroom": 4.924543380737305,
+      "sdrMethod": "embedded-sdr"
+    },
+    {
+      "src": "media/images/portraits/0010.jpg",
+      "width": 1200,
+      "height": 1800,
+      "alt": "Portrait photograph"
+    },
+    {
       "src": "media/images/portraits/0040.jpg",
+      "width": 1200,
+      "height": 1800,
+      "alt": "Portrait photograph"
+    },
+    {
+      "src": "media/images/portraits/0160.jpg",
       "width": 1200,
       "height": 1800,
       "alt": "Portrait photograph"
@@ -183,34 +207,25 @@ window.GALLERY_DATA = {
       "alt": "Portrait photograph"
     },
     {
-      "src": "media/images/portraits/0100.jpg",
-      "width": 2400,
-      "height": 1600,
-      "alt": "Portrait photograph"
+      "src": "media/images/events/p1259984-6a58de2c44b1.jpg",
+      "width": 1600,
+      "height": 2400,
+      "alt": "P1259984"
     },
     {
-      "src": "media/images/portraits/0120.jpg",
+      "src": "media/images/portraits/p1003222-613198dbb1d3.jpg",
       "width": 2400,
       "height": 1600,
-      "alt": "Portrait photograph"
+      "alt": "P1003222",
+      "hdrSrc": "media/images/portraits/p1003222-613198dbb1d3-hdr.jpg",
+      "hdrHeadroom": 16.14259147644043,
+      "sdrMethod": "system-tone-map"
     },
     {
       "src": "media/images/portraits/0130.jpg",
       "width": 2200,
       "height": 1466,
       "alt": "Portrait photograph"
-    },
-    {
-      "src": "media/images/portraits/0160.jpg",
-      "width": 1200,
-      "height": 1800,
-      "alt": "Portrait photograph"
-    },
-    {
-      "src": "media/images/events/p1259984-6a58de2c44b1.jpg",
-      "width": 1600,
-      "height": 2400,
-      "alt": "P1259984"
     }
   ]
 };
