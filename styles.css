@@ -480,13 +480,17 @@ h1,
 }
 
 .about-photos {
-  display: grid;
-  grid-template-columns: 1.5fr 0.75fr 0.5625fr 1.777778fr 0.890792fr;
+  display: flex;
   gap: clamp(12px, 1.4vw, 22px);
   align-items: start;
 }
 
+.about-row {
+  display: contents;
+}
+
 .about-photos figure {
+  flex: var(--about-ratio) 1 0%;
   min-width: 0;
   background: var(--image-placeholder);
 }
@@ -617,13 +621,14 @@ h1,
 
 @media (max-width: 1100px) {
   .about-photos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-direction: column;
   }
 
-  .about-photo-main,
-  .about-video-wide,
-  .about-photo-work {
-    grid-column: 1 / -1;
+  .about-row {
+    display: flex;
+    width: 100%;
+    gap: inherit;
+    align-items: start;
   }
 }
 
