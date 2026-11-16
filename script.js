@@ -225,6 +225,65 @@ function loadHeroVideo() {
 
 loadHeroVideo();
 
+function loadBehindTheScenesVideos() {
+  const videos = [...document.querySelectorAll("[data-bts-video]")];
+  if (!videos.length) return;
+
+  const hdrDisplay = window.matchMedia("(dynamic-range: high)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const visibleVideos = new Set();
+  const failedHdrVideos = new Set();
+
+  const updatePlayback = (video) => {
+    if (!visibleVideos.has(video) || document.hidden || reducedMotion.matches) {
+      video.pause();
+      return;
+    }
+
+    const useHdr = hdrDisplay.matches &&
+      video.canPlayType('video/mp4; codecs="hvc1.2.4.L120.B0"') !== "" &&
+      !failedHdrVideos.has(video);
+    const source = useHdr ? video.dataset.hdrSrc : video.dataset.sdrSrc;
+    if (video.getAttribute("src") !== source) {
+      video.src = source;
+      video.load();
+    }
+    video.muted = true;
+    video.play().catch(() => {});
+  };
+
+  const observer = "IntersectionObserver" in window
+    ? new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) visibleVideos.add(target);
+        else visibleVideos.delete(target);
+        updatePlayback(target);
+      });
+    }, { threshold: 0.01 })
+    : null;
+
+  videos.forEach((video) => {
+    video.addEventListener("error", () => {
+      if (video.getAttribute("src") === video.dataset.hdrSrc) {
+        failedHdrVideos.add(video);
+        updatePlayback(video);
+      }
+    });
+    if (observer) observer.observe(video);
+    else {
+      visibleVideos.add(video);
+      updatePlayback(video);
+    }
+  });
+
+  const updateAll = () => videos.forEach(updatePlayback);
+  hdrDisplay.addEventListener("change", updateAll);
+  reducedMotion.addEventListener("change", updateAll);
+  document.addEventListener("visibilitychange", updateAll);
+}
+
+loadBehindTheScenesVideos();
+
 galleryImages.forEach((image) => {
   const imageWidth = Number(image.getAttribute("width"));
   const imageHeight = Number(image.getAttribute("height"));

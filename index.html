@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="theme.js?v=a071489ff0a8"></script>
+    <script src="theme.js?v=044c3d55fa9b"></script>
     <meta
       name="description"
       content="Léonard Benecke Photography in München für Eventfotografie, Club-Events, Portraits, Automotive, Immobilien, Foto und Video."
@@ -34,7 +34,7 @@
     <title>Léonard Benecke Photography | Foto &amp; Video in München</title>
     <link rel="canonical" href="https://leonardbenecke.de/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311110f'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='24' fill='%23f4f1ea'%3ELB%3C/text%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="styles.css?v=9e57c28a5584" />
+    <link rel="stylesheet" href="styles.css?v=813ed0a7dae0" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -68,7 +68,7 @@
       }
     </script>
     <script src="gallery-data.js?v=ce469695757b" defer></script>
-    <script src="script.js?v=83152c6ff6e7" defer fetchpriority="high"></script>
+    <script src="script.js?v=a884334c7eb7" defer fetchpriority="high"></script>
   </head>
   <body>
     <header class="site-header">
@@ -115,12 +115,41 @@
           <button type="button" data-photo-filter="portraits" aria-pressed="false" aria-controls="photography-grid">Portraits</button>
         </nav>
         <button class="theme-toggle" type="button" role="switch" aria-checked="true" aria-label="Dunkler Modus" data-theme-toggle>
-          <span data-theme-label>Dark</span>
+          <svg class="theme-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 13.1A8.5 8.5 0 0 1 10.9 3.5a8.5 8.5 0 1 0 9.6 9.6Z" /></svg>
           <span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span>
         </button>
         </div>
         <p class="sr-only" data-gallery-status role="status" aria-live="polite"></p>
         <div id="photography-grid" class="photo-grid" data-gallery-feed></div>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-title">
+        <div class="about-intro">
+          <div>
+            <p class="about-label">Léonard Benecke</p>
+            <h2 id="about-title">Me, for a change.</h2>
+          </div>
+          <p class="about-copy">I'm Léonard. Usually on the other side of the camera.</p>
+        </div>
+        <div class="about-photos">
+          <figure class="about-photo-main">
+            <img src="media/images/about/leonard-city.jpg" width="1086" height="724" alt="Black-and-white portrait of Léonard Benecke in a city at night" loading="lazy" decoding="async" />
+          </figure>
+          <figure>
+            <img src="media/images/about/leonard-seaside.jpg" width="768" height="1024" alt="Léonard Benecke by the sea in a white shirt and black cap" loading="lazy" decoding="async" />
+          </figure>
+          <figure>
+            <video autoplay muted loop playsinline preload="none" width="720" height="1280" poster="media/images/about/behind-the-scenes-poster.jpg" aria-label="Behind-the-scenes video" data-bts-video data-sdr-src="media/videos/about/behind-the-scenes.mp4" data-hdr-src="media/videos/about/behind-the-scenes-hdr.mp4">
+            </video>
+          </figure>
+          <figure class="about-video-wide">
+            <video autoplay muted loop playsinline preload="none" width="1280" height="720" poster="media/images/about/behind-the-scenes-boat-poster.jpg" aria-label="Behind-the-scenes video on a boat" data-bts-video data-sdr-src="media/videos/about/behind-the-scenes-boat.mp4" data-hdr-src="media/videos/about/behind-the-scenes-boat-hdr.mp4">
+            </video>
+          </figure>
+          <figure class="about-photo-work">
+            <img src="media/images/about/leonard-photographing.png" width="832" height="934" alt="Léonard Benecke photographing at an outdoor event" loading="lazy" decoding="async" />
+          </figure>
+        </div>
       </section>
 
       <section id="contact" class="contact" aria-label="Contact">

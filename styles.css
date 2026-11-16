@@ -253,6 +253,11 @@ figure {
   cursor: pointer;
 }
 
+.theme-toggle-icon {
+  display: block;
+  flex-shrink: 0;
+}
+
 .theme-toggle-track {
   display: block;
   width: 30px;
@@ -433,6 +438,66 @@ h1,
   text-transform: uppercase;
 }
 
+.about {
+  margin-top: clamp(86px, 12vw, 160px);
+  padding: 0 clamp(18px, 3vw, 42px);
+}
+
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: end;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  margin-bottom: clamp(28px, 4vw, 54px);
+}
+
+.about-label {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.about h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5.6vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.about-copy {
+  max-width: 34ch;
+  margin: 0;
+  justify-self: end;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.about-photos {
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr 0.5625fr 1.777778fr 0.890792fr;
+  gap: clamp(12px, 1.4vw, 22px);
+  align-items: start;
+}
+
+.about-photos figure {
+  min-width: 0;
+  background: var(--image-placeholder);
+}
+
+.about-photos img,
+.about-photos video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .contact {
   display: grid;
   grid-template-columns: 1fr;
@@ -550,6 +615,18 @@ h1,
   .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+@media (max-width: 1100px) {
+  .about-photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-photo-main,
+  .about-video-wide,
+  .about-photo-work {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 780px) {
   .site-header {
     padding: 18px;
@@ -644,6 +721,15 @@ h1,
   .contact {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .about-copy {
+    justify-self: start;
   }
 
   .contact-links {

@@ -14,7 +14,6 @@
     const update = () => {
       const dark = root.dataset.theme === "dark";
       toggle.setAttribute("aria-checked", String(dark));
-      toggle.querySelector("[data-theme-label]").textContent = dark ? "Dark" : "Light";
       toggle.title = dark ? "Zum hellen Modus wechseln" : "Zum dunklen Modus wechseln";
     };
     toggle.addEventListener("click", () => {
